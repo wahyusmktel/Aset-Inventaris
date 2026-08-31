@@ -1,0 +1,16 @@
+# Contoh Konfigurasi Cloudflare Tunnel (/etc/cloudflared/config.yml)
+# Ganti <TUNNEL_ID> dengan UUID Tunnel Anda dari output `cloudflared tunnel create`
+
+tunnel: <TUNNEL_ID>
+credentials-file: /etc/cloudflared/<TUNNEL_ID>.json
+
+ingress:
+  # 1. Routing Domain Utama Aplikasi Aset Inventaris ke Nginx Lokal
+  - hostname: aset.smktelkom-lpg.id
+    service: http://localhost:80
+    originRequest:
+      noTLSVerify: true
+      connectTimeout: 30s
+
+  # 2. Fallback rule (wajib ada di baris paling bawah)
+  - service: http_status:404
