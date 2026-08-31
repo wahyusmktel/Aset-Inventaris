@@ -24,10 +24,6 @@ const form = useForm({
     remember: false,
 });
 
-const fillAccount = (email, password) => {
-    form.email = email;
-    form.password = password;
-};
 
 const submit = () => {
     form.post(route('login'), {
@@ -125,32 +121,6 @@ const submit = () => {
                     >
                         {{ form.processing ? 'Memverifikasi...' : 'Masuk ke Aplikasi' }}
                     </M3Button>
-                </div>
-
-                <!-- Fast Account Selection Chips for Demo / Convenience -->
-                <div class="pt-3 border-t border-outline-variant/30 space-y-2">
-                    <span class="text-[11px] font-semibold text-surface-on-variant block">
-                        Akses Cepat Pengujian:
-                    </span>
-                    <div class="grid grid-cols-2 gap-2">
-                        <button
-                            type="button"
-                            @click="fillAccount('admin@admin.com', '12345678')"
-                            class="p-2 rounded-m3-xs bg-surface-container hover:bg-primary-container hover:text-primary transition-colors text-left border border-outline-variant/30 cursor-pointer"
-                        >
-                            <span class="text-[11px] font-bold block text-surface-foreground">👑 Super Admin</span>
-                            <span class="text-[9.5px] text-surface-on-variant block">admin@admin.com</span>
-                        </button>
-
-                        <button
-                            type="button"
-                            @click="fillAccount('anggota@smktelkom.sch.id', '12345678')"
-                            class="p-2 rounded-m3-xs bg-surface-container hover:bg-primary-container hover:text-primary transition-colors text-left border border-outline-variant/30 cursor-pointer"
-                        >
-                            <span class="text-[11px] font-bold block text-surface-foreground">👷 Tim Surveyor</span>
-                            <span class="text-[9.5px] text-surface-on-variant block">anggota@smktelkom...</span>
-                        </button>
-                    </div>
                 </div>
             </form>
         </div>

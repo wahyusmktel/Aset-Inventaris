@@ -292,6 +292,32 @@ const handleBulkSeed = async () => {
   }
 };
 
+const isClearing = ref(false);
+
+const handleClearInventory = async () => {
+  const isConfirmed = await alert.confirm({
+    title: 'Kosongkan Seluruh Data Inventaris?',
+    message: 'PERINGATAN: Tindakan ini akan menghapus seluruh data barang inventaris yang telah didata, foto barang, serta mereset berita acara finalisasi. Data yang dihapus TIDAK DAPAT dipulihkan!',
+    type: 'error',
+    confirmText: 'Ya, Kosongkan Data',
+    cancelText: 'Batal',
+  });
+
+  if (isConfirmed) {
+    isClearing.value = true;
+    router.post(
+      route('system.reset.inventory'),
+      {},
+      {
+        preserveScroll: true,
+        onFinish: () => {
+          isClearing.value = false;
+        },
+      }
+    );
+  }
+};
+
 const handleExportExcel = () => {
   isExporting.value = true;
   toast.info('Menyiapkan file Excel laporan inventaris barang...');
@@ -475,6 +501,19 @@ const formatDate = (dateStr) => {
             >
               <span class="material-symbols-outlined text-[18px]">table_view</span>
               <span>Export Excel</span>
+            </button>
+
+            <!-- Kosongkan Data Button (SUPER ADMIN ONLY) -->
+            <button
+              v-if="isSuperAdmin"
+              type="button"
+              @click="handleClearInventory"
+              :disabled="isClearing || statistics.total_items === 0"
+              class="h-10 px-4 rounded-m3-full bg-red-50 hover:bg-red-100 text-error border border-red-200 font-semibold text-xs inline-flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+              title="Kosongkan seluruh data inventaris barang dan berita acara"
+            >
+              <span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+              <span>{{ isClearing ? 'Mengosongkan...' : 'Kosongkan Data' }}</span>
             </button>
 
             <!-- Muat Data Contoh Button (SUPER ADMIN ONLY) -->

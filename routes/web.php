@@ -10,6 +10,7 @@ use App\Http\Controllers\MasterData\ItemCategoryController;
 use App\Http\Controllers\MasterData\ItemFunctionController;
 use App\Http\Controllers\MasterData\RoomController;
 use App\Http\Controllers\MasterData\SchoolController;
+use App\Http\Controllers\Governance\SystemResetController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserManagement\UserController;
 use Illuminate\Support\Facades\Route;
@@ -92,6 +93,12 @@ Route::middleware('auth')->group(function () {
                 // Fungsi Barang
                 Route::resource('item-functions', ItemFunctionController::class)->except(['create', 'edit', 'show']);
                 Route::post('item-functions/bulk-seed', [ItemFunctionController::class, 'bulkSeed'])->name('item-functions.bulk-seed');
+            });
+
+            // PENGOSONGAN & RESET DATA SISTEM (Super Admin Only)
+            Route::prefix('pengaturan-sistem')->name('system.')->group(function () {
+                Route::post('/reset-inventory', [SystemResetController::class, 'resetInventory'])->name('reset.inventory');
+                Route::post('/reset-all-transactional', [SystemResetController::class, 'resetAllTransactional'])->name('reset.all-transactional');
             });
         });
     });
