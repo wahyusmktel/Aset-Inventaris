@@ -6,37 +6,34 @@ let timer = null;
 
 const slides = [
   {
-    title: 'Analisis Data & Pertumbuhan Cerdas',
-    description: 'Pantau metrik bisnis, konversi, dan performa keuangan Anda secara real-time dengan dashboard interaktif.',
-    tag: 'Dashboard AI',
-    colorFrom: 'from-[#6750A4]',
-    colorTo: 'to-[#4F378B]',
-    accentBg: 'bg-[#EADDFF]',
-    accentText: 'text-[#21005D]',
-    icon: 'monitoring',
-    svgType: 'chart',
+    title: 'Digitalisasi Aset Laboratorium & Sarpras Sekolah',
+    description: 'Pencatatan akurat sarana praktikum kejuruan RPL, Fiber Optic TJAT, Studio Animasi 3D, Lab TKJ, dan seluruh fasilitas penunjang kampus SMK Telkom Lampung.',
+    tag: 'Kejuruan & Sarpras',
+    colorFrom: 'from-[#E52320]',
+    colorTo: 'to-[#991B1B]',
+    accentBg: 'bg-[#FFE8E9]',
+    accentText: 'text-[#660007]',
+    icon: 'devices',
   },
   {
-    title: 'Keamanan & Enkripsi Standar Tinggi',
-    description: 'Seluruh data dan privasi transaksi Anda terlindungi dengan enkripsi mutakhir dan autentikasi multi-lapis.',
-    tag: 'Keamanan Tingkat Tinggi',
-    colorFrom: 'from-[#00639B]',
-    colorTo: 'to-[#004A75]',
-    accentBg: 'bg-[#C2E7FF]',
-    accentText: 'text-[#001D35]',
-    icon: 'shield_lock',
-    svgType: 'security',
+    title: 'Pakta Integritas & Berita Acara Sah 3 Tanda Tangan',
+    description: 'Menjamin akuntabilitas dan keabsahan fisik barang dengan penandatanganan digital oleh Tim Surveyor, Kaur IT (PIC Aset), dan Kepala Sekolah.',
+    tag: 'Legal & Akuntabel',
+    colorFrom: 'from-[#1E293B]',
+    colorTo: 'to-[#0F172A]',
+    accentBg: 'bg-primary-container',
+    accentText: 'text-primary-on-container',
+    icon: 'verified_user',
   },
   {
-    title: 'Kolaborasi & Manajemen Tanpa Batas',
-    description: 'Kelola tim, proyek, dan hak akses dalam satu platform responsif berbasis Material Design 3.',
-    tag: 'Efisiensi Kerja',
-    colorFrom: 'from-[#7D5260]',
-    colorTo: 'to-[#5E3A47]',
-    accentBg: 'bg-[#FFD8E4]',
-    accentText: 'text-[#31111D]',
-    icon: 'hub',
-    svgType: 'collaboration',
+    title: 'Monitoring Cut-off & Laporan Eksekutif Excel',
+    description: 'Pantau hitung mundur batas waktu pengadaan, tingkat kelaikan unit siap pakai, dan ekspor laporan inventaris berstandar Yayasan Pendidikan Telkom.',
+    tag: 'Tata Kelola Disiplin',
+    colorFrom: 'from-[#BE123C]',
+    colorTo: 'to-[#881337]',
+    accentBg: 'bg-[#FFE4E6]',
+    accentText: 'text-[#881337]',
+    icon: 'timer',
   },
 ];
 
@@ -77,7 +74,7 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="relative w-full h-full min-h-[480px] lg:min-h-[620px] rounded-[28px] overflow-hidden select-none flex flex-col justify-between p-7 sm:p-9 text-white shadow-2xl transition-all duration-700"
+    class="relative w-full h-full min-h-[480px] lg:min-h-[600px] rounded-[28px] overflow-hidden select-none flex flex-col justify-between p-7 sm:p-9 text-white shadow-2xl transition-all duration-700"
     @mouseenter="stopTimer"
     @mouseleave="startTimer"
   >
@@ -90,7 +87,7 @@ onUnmounted(() => {
     >
       <!-- Subtle Decorative Background Circles -->
       <div class="absolute -right-16 -top-16 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-      <div class="absolute -left-16 -bottom-16 w-72 h-72 bg-black/15 rounded-full blur-2xl"></div>
+      <div class="absolute -left-16 -bottom-16 w-72 h-72 bg-black/20 rounded-full blur-2xl"></div>
     </div>
 
     <!-- Top Badge Row -->
@@ -100,152 +97,95 @@ onUnmounted(() => {
         <span>{{ slides[activeSlide].tag }}</span>
       </div>
 
-      <!-- Slide Counter -->
-      <span class="text-xs font-bold text-white/70 tracking-widest">
-        0{{ activeSlide + 1 }} / 0{{ slides.length }}
-      </span>
+      <!-- Telkom Schools Brand Watermark Badge -->
+      <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[11px] font-bold text-white/90">
+        <span>Telkom Schools</span>
+      </div>
     </div>
 
-    <!-- Center Dynamic Illustration Area -->
-    <div class="relative z-10 my-auto py-6 flex items-center justify-center">
-      <!-- Slide 1: Chart / Analytics Illustration -->
-      <div v-if="activeSlide === 0" class="transition-all duration-500 transform animate-fade-in flex flex-col items-center">
-        <div class="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
-          <!-- Outer glowing circle -->
-          <div class="absolute inset-0 rounded-full bg-white/10 animate-pulse"></div>
-          
-          <!-- Modern 3D Floating Analytics Card Mockup -->
-          <div class="relative z-10 w-52 sm:w-60 bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-5 shadow-2xl space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <div class="w-7 h-7 rounded-xl bg-emerald-400 text-emerald-950 flex items-center justify-center font-bold text-xs">
-                  📈
-                </div>
-                <div>
-                  <div class="text-xs font-bold text-white">Pertumbuhan</div>
-                  <div class="text-[10px] text-white/70">Bulan ini</div>
-                </div>
-              </div>
-              <span class="px-2 py-0.5 rounded-full bg-emerald-500/30 text-emerald-200 text-[10px] font-bold">+38.4%</span>
-            </div>
-
-            <!-- Bar Chart Simulation -->
-            <div class="h-20 flex items-end justify-between gap-2 pt-2 px-1">
-              <div class="w-full bg-white/25 rounded-t-lg h-[40%]"></div>
-              <div class="w-full bg-white/35 rounded-t-lg h-[65%]"></div>
-              <div class="w-full bg-white/50 rounded-t-lg h-[50%]"></div>
-              <div class="w-full bg-white/70 rounded-t-lg h-[85%]"></div>
-              <div class="w-full bg-emerald-400 rounded-t-lg h-[100%] shadow-lg shadow-emerald-400/50"></div>
-            </div>
+    <!-- Center Interactive Graphic Illustration (Telkom Schools Themed) -->
+    <div class="relative z-10 my-auto py-8 flex items-center justify-center">
+      <!-- Slide 1: Lab & Devices -->
+      <div v-if="activeSlide === 0" class="w-full max-w-sm flex flex-col items-center justify-center space-y-4">
+        <div class="w-24 h-24 rounded-3xl bg-white/15 backdrop-blur-xl border border-white/30 flex items-center justify-center shadow-2xl shadow-black/20">
+          <span class="material-symbols-outlined text-[48px] text-white">inventory_2</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3 w-full">
+          <div class="p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+            <span class="text-[10px] text-white/80 font-medium block">Lab Komputer</span>
+            <span class="text-xs font-bold text-white mt-0.5 block">RPL, TKJ, Animasi</span>
           </div>
-
-          <!-- Floating Badge -->
-          <div class="absolute -bottom-2 -left-2 bg-white text-primary rounded-2xl px-3.5 py-2 shadow-xl flex items-center gap-2 text-xs font-bold animate-bounce">
-            <span>✨</span>
-            <span>Real-time Data</span>
+          <div class="p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
+            <span class="text-[10px] text-white/80 font-medium block">Telekomunikasi</span>
+            <span class="text-xs font-bold text-white mt-0.5 block">Fiber Optic (TJAT)</span>
           </div>
         </div>
       </div>
 
-      <!-- Slide 2: Security & Shield Illustration -->
-      <div v-else-if="activeSlide === 1" class="transition-all duration-500 transform animate-fade-in flex flex-col items-center">
-        <div class="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
-          <div class="absolute inset-0 rounded-full bg-white/10 animate-pulse"></div>
-
-          <!-- Glowing Shield Element -->
-          <div class="relative z-10 w-44 h-52 bg-white/20 backdrop-blur-xl border border-white/30 rounded-[36px] flex flex-col items-center justify-center shadow-2xl p-6 text-center space-y-3">
-            <div class="w-16 h-16 rounded-full bg-white text-[#00639B] flex items-center justify-center shadow-lg shadow-black/10">
-              <span class="material-symbols-outlined text-[36px]">lock</span>
-            </div>
-            <div class="text-xs font-bold text-white tracking-wider uppercase">SSL 256-Bit</div>
-            <div class="inline-flex items-center gap-1 text-[11px] text-emerald-300 font-semibold">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              <span>Terproteksi</span>
-            </div>
-          </div>
-
-          <!-- Floating Chip -->
-          <div class="absolute -top-1 -right-2 bg-white text-[#00639B] rounded-2xl px-3.5 py-2 shadow-xl flex items-center gap-2 text-xs font-bold">
-            <span class="material-symbols-outlined text-[16px] text-emerald-600">verified_user</span>
-            <span>Zero-Trust</span>
-          </div>
+      <!-- Slide 2: Legal & Verification -->
+      <div v-else-if="activeSlide === 1" class="w-full max-w-sm flex flex-col items-center justify-center space-y-4">
+        <div class="w-24 h-24 rounded-3xl bg-white/15 backdrop-blur-xl border border-white/30 flex items-center justify-center shadow-2xl shadow-black/20">
+          <span class="material-symbols-outlined text-[48px] text-white">draw</span>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center w-full">
+          <span class="text-xs font-bold text-white block">Tanda Tangan Digital & Berita Acara</span>
+          <span class="text-[11px] text-white/80 mt-1 block">Surveyor &bull; Kaur IT &bull; Kepala Sekolah</span>
         </div>
       </div>
 
-      <!-- Slide 3: Collaboration & Hub Illustration -->
-      <div v-else class="transition-all duration-500 transform animate-fade-in flex flex-col items-center">
-        <div class="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
-          <div class="absolute inset-0 rounded-full bg-white/10 animate-pulse"></div>
-
-          <!-- Connected Nodes Elements -->
-          <div class="relative z-10 w-52 sm:w-56 bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl p-5 shadow-2xl space-y-3">
-            <div class="text-xs font-bold text-white flex items-center justify-between">
-              <span>Aktivitas Tim</span>
-              <span class="text-[10px] text-white/70">Aktif</span>
-            </div>
-
-            <div class="space-y-2">
-              <div class="flex items-center gap-2.5 p-2 rounded-xl bg-white/15">
-                <div class="w-6 h-6 rounded-full bg-amber-400 text-amber-950 font-bold text-[10px] flex items-center justify-center">A</div>
-                <div class="text-[11px] text-white font-medium truncate">Update Desain M3</div>
-              </div>
-              <div class="flex items-center gap-2.5 p-2 rounded-xl bg-white/15">
-                <div class="w-6 h-6 rounded-full bg-purple-300 text-purple-950 font-bold text-[10px] flex items-center justify-center">B</div>
-                <div class="text-[11px] text-white font-medium truncate">Sinkronisasi API</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Floating Notification -->
-          <div class="absolute -bottom-2 -right-2 bg-white text-[#7D5260] rounded-2xl px-3.5 py-2 shadow-xl flex items-center gap-2 text-xs font-bold">
-            <span>⚡</span>
-            <span>Kolaborasi Instan</span>
-          </div>
+      <!-- Slide 3: Time & Cutoff -->
+      <div v-else class="w-full max-w-sm flex flex-col items-center justify-center space-y-4">
+        <div class="w-24 h-24 rounded-3xl bg-white/15 backdrop-blur-xl border border-white/30 flex items-center justify-center shadow-2xl shadow-black/20">
+          <span class="material-symbols-outlined text-[48px] text-white">alarm_on</span>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center w-full">
+          <span class="text-xs font-bold text-white block">Sistem Otomatisasi Batas Cut-Off</span>
+          <span class="text-[11px] text-white/80 mt-1 block">Pelaporan Cepat & Ekspor Excel Presisi</span>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Content: Title, Description & Controls -->
-    <div class="relative z-10 space-y-5">
+    <!-- Bottom Text & Slide Controls -->
+    <div class="relative z-10 space-y-4">
       <div class="space-y-2">
-        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-white leading-tight">
+        <h2 class="text-xl sm:text-2xl font-black text-white leading-tight tracking-tight">
           {{ slides[activeSlide].title }}
-        </h3>
+        </h2>
         <p class="text-xs sm:text-sm text-white/80 leading-relaxed max-w-md">
           {{ slides[activeSlide].description }}
         </p>
       </div>
 
-      <!-- Slide Indicators & Arrows -->
-      <div class="flex items-center justify-between pt-2 border-t border-white/15">
-        <!-- Interactive Pill Indicators -->
+      <!-- Navigation Bullets & Arrows -->
+      <div class="flex items-center justify-between pt-2">
+        <!-- Bullets -->
         <div class="flex items-center gap-2">
           <button
-            v-for="(slide, index) in slides"
-            :key="'dot-' + index"
-            @click="goToSlide(index)"
+            v-for="(_, index) in slides"
+            :key="'bullet-' + index"
             type="button"
+            @click="goToSlide(index)"
             class="h-2 rounded-full transition-all duration-300 cursor-pointer"
-            :class="activeSlide === index ? 'w-8 bg-white' : 'w-2 bg-white/40 hover:bg-white/70'"
-            :title="slide.title"
+            :class="activeSlide === index ? 'w-8 bg-white' : 'w-2 bg-white/40 hover:bg-white/60'"
+            :title="'Slide ' + (index + 1)"
           ></button>
         </div>
 
-        <!-- Navigation Arrows -->
+        <!-- Arrows -->
         <div class="flex items-center gap-1.5">
           <button
-            @click="prevSlide(); restartTimer()"
             type="button"
-            class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/30 active:bg-white/40 backdrop-blur-md flex items-center justify-center text-white transition-colors cursor-pointer"
-            title="Slide Sebelumnya"
+            @click="prevSlide"
+            class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 active:bg-white/35 backdrop-blur-md flex items-center justify-center transition-colors cursor-pointer"
+            title="Sebelumnya"
           >
             <span class="material-symbols-outlined text-[18px]">chevron_left</span>
           </button>
           <button
-            @click="nextSlide(); restartTimer()"
             type="button"
-            class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/30 active:bg-white/40 backdrop-blur-md flex items-center justify-center text-white transition-colors cursor-pointer"
-            title="Slide Berikutnya"
+            @click="nextSlide"
+            class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 active:bg-white/35 backdrop-blur-md flex items-center justify-center transition-colors cursor-pointer"
+            title="Berikutnya"
           >
             <span class="material-symbols-outlined text-[18px]">chevron_right</span>
           </button>
@@ -254,20 +194,3 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
-
-<style scoped>
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-</style>

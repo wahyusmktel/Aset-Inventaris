@@ -73,8 +73,8 @@ const getBreadcrumbParent = () => {
         <!-- Drawer Header -->
         <div class="h-20 flex items-center justify-between px-6 border-b border-outline-variant/30 sticky top-0 bg-surface-container-low z-10">
           <Link :href="route('dashboard')" class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-m3-md bg-primary flex items-center justify-center text-primary-foreground shadow-m3-elevation-1">
-              <span class="material-symbols-outlined text-[24px]">inventory_2</span>
+            <div class="w-10 h-10 rounded-2xl bg-white p-1 flex items-center justify-center border border-outline-variant/40 shadow-xs shrink-0">
+              <img src="/images/telkom-schools-logo.png" alt="Logo Telkom Schools" class="w-full h-full object-contain" />
             </div>
             <div>
               <span class="text-base font-bold text-surface-foreground tracking-tight block">Aset & Inventaris</span>
