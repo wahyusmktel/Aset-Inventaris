@@ -80,7 +80,7 @@ let roomChart = null;
 let functionChart = null;
 
 const initCharts = () => {
-  // 1. Chart Kategori Barang (Horizontal Bar Chart)
+  // 1. Chart Kategori Barang (Horizontal Bar Chart - Telkom Red & Slate Palette)
   if (categoryChartRef.value) {
     if (categoryChart) categoryChart.destroy();
     const catLabels = props.chartData.categories.map((c) => c.name);
@@ -95,13 +95,13 @@ const initCharts = () => {
             label: 'Jumlah Jenis Barang',
             data: catCounts.length > 0 ? catCounts : [0],
             backgroundColor: [
-              '#2563EB', // Blue
-              '#0284C7', // Sky
-              '#0D9488', // Teal
-              '#16A34A', // Green
-              '#D97706', // Amber
-              '#7C3AED', // Violet
-              '#DB2777', // Pink
+              '#E52320', // Signature Telkom Red
+              '#BE123C', // Deep Crimson
+              '#334155', // Slate Gray
+              '#475569', // Cool Slate
+              '#64748B', // Medium Gray
+              '#991B1B', // Dark Red
+              '#0F172A', // Dark Slate
             ],
             borderRadius: 6,
             barThickness: 16,
@@ -134,7 +134,7 @@ const initCharts = () => {
     });
   }
 
-  // 2. Chart Kondisi Barang (Doughnut Chart)
+  // 2. Chart Kondisi Barang (Doughnut Chart: Baik vs Rusak)
   if (conditionChartRef.value) {
     if (conditionChart) conditionChart.destroy();
     const baik = props.chartData.condition.baik || 0;
@@ -147,7 +147,7 @@ const initCharts = () => {
         datasets: [
           {
             data: baik === 0 && rusak === 0 ? [1, 0] : [baik, rusak],
-            backgroundColor: ['#10B981', '#EF4444'], // Emerald vs Red
+            backgroundColor: ['#10B981', '#E52320'], // Emerald vs Telkom Red
             borderWidth: 3,
             borderColor: '#FFFFFF',
             hoverOffset: 6,
@@ -178,7 +178,7 @@ const initCharts = () => {
     });
   }
 
-  // 3. Chart Distribusi Ruangan / Lab (Bar Chart)
+  // 3. Chart Distribusi Ruangan / Lab (Bar Chart - Telkom Red)
   if (roomChartRef.value) {
     if (roomChart) roomChart.destroy();
     const roomLabels = props.chartData.rooms.map((r) => r.name);
@@ -192,8 +192,8 @@ const initCharts = () => {
           {
             label: 'Barang di Ruangan',
             data: roomCounts.length > 0 ? roomCounts : [0],
-            backgroundColor: '#4F46E5', // Indigo
-            hoverBackgroundColor: '#4338CA',
+            backgroundColor: '#E52320', // Telkom Red
+            hoverBackgroundColor: '#CC1513',
             borderRadius: 6,
             barThickness: 24,
           },
@@ -227,7 +227,7 @@ const initCharts = () => {
     });
   }
 
-  // 4. Chart Fungsi Barang (Pie Chart)
+  // 4. Chart Fungsi Barang (Pie Chart - Telkom Red & Slate Grays)
   if (functionChartRef.value) {
     if (functionChart) functionChart.destroy();
     const fnLabels = props.chartData.functions.map((f) => f.name);
@@ -241,12 +241,12 @@ const initCharts = () => {
           {
             data: fnCounts.length > 0 ? fnCounts : [1],
             backgroundColor: [
-              '#3B82F6', // Blue
-              '#8B5CF6', // Purple
-              '#EC4899', // Pink
-              '#F59E0B', // Amber
-              '#10B981', // Emerald
-              '#06B6D4', // Cyan
+              '#E52320', // Telkom Red
+              '#1E293B', // Dark Slate
+              '#BE123C', // Crimson
+              '#475569', // Slate Gray
+              '#D97706', // Amber
+              '#0D9488', // Teal
             ],
             borderWidth: 2,
             borderColor: '#FFFFFF',
@@ -294,11 +294,11 @@ const formatDate = (dateStr) => {
   <AuthenticatedLayout>
     <div class="space-y-6">
       
-      <!-- 1. School Identity & Welcome Banner -->
-      <div class="bg-gradient-to-r from-primary via-primary/95 to-slate-900 rounded-m3-xl p-6 sm:p-8 text-white relative overflow-hidden shadow-m3-elevation-2">
+      <!-- 1. School Identity & Welcome Banner (Telkom Red Gradient) -->
+      <div class="bg-gradient-to-r from-primary via-[#C8102E] to-slate-900 rounded-m3-xl p-6 sm:p-8 text-white relative overflow-hidden shadow-m3-elevation-2">
         <!-- Background decoration circles -->
         <div class="absolute -right-10 -bottom-10 w-72 h-72 rounded-full bg-white/5 pointer-events-none blur-2xl"></div>
-        <div class="absolute right-32 -top-12 w-48 h-48 rounded-full bg-secondary/15 pointer-events-none blur-xl"></div>
+        <div class="absolute right-32 -top-12 w-48 h-48 rounded-full bg-black/15 pointer-events-none blur-xl"></div>
 
         <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div class="space-y-2.5 max-w-2xl">
@@ -312,7 +312,7 @@ const formatDate = (dateStr) => {
               Dashboard Aset & Inventaris Sekolah
             </h1>
 
-            <p class="text-xs sm:text-sm text-white/80 leading-relaxed">
+            <p class="text-xs sm:text-sm text-white/90 leading-relaxed">
               Selamat datang kembali, <strong>{{ $page.props.auth.user.name }}</strong>. 
               Sistem telah mencatat <strong>{{ metrics.total_items }} jenis barang</strong> dengan total fisik <strong>{{ metrics.total_quantity }} unit</strong> 
               yang tersebar di <strong>{{ metrics.total_rooms }} ruangan/lab</strong> kampus.
@@ -335,7 +335,7 @@ const formatDate = (dateStr) => {
           <div class="flex flex-wrap items-center gap-3 shrink-0">
             <a
               :href="route('inventory.items.export')"
-              class="h-11 px-4 rounded-m3-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold text-xs inline-flex items-center gap-2 transition-all cursor-pointer"
+              class="h-11 px-4 rounded-m3-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 text-white font-semibold text-xs inline-flex items-center gap-2 transition-all cursor-pointer"
             >
               <span class="material-symbols-outlined text-[18px]">table_view</span>
               <span>Unduh Excel Aset</span>
@@ -400,13 +400,13 @@ const formatDate = (dateStr) => {
         <div class="bg-surface-container-lowest p-4 rounded-m3-lg border border-outline-variant/40 shadow-xs flex flex-col justify-between">
           <div class="flex items-center justify-between">
             <span class="text-[11px] font-semibold text-surface-on-variant">Kondisi Rusak</span>
-            <div class="w-7 h-7 rounded-m3-xs bg-red-100 text-error flex items-center justify-center">
+            <div class="w-7 h-7 rounded-m3-xs bg-red-100 text-primary flex items-center justify-center">
               <span class="material-symbols-outlined text-[16px]">warning</span>
             </div>
           </div>
           <div class="mt-2">
-            <div class="text-xl sm:text-2xl font-black text-error">{{ metrics.damaged_condition }}</div>
-            <div class="text-[10px] text-error font-semibold mt-0.5">Perlu Tindakan</div>
+            <div class="text-xl sm:text-2xl font-black text-primary">{{ metrics.damaged_condition }}</div>
+            <div class="text-[10px] text-primary font-semibold mt-0.5">Perlu Tindakan</div>
           </div>
         </div>
 
@@ -428,7 +428,7 @@ const formatDate = (dateStr) => {
         <div class="bg-surface-container-lowest p-4 rounded-m3-lg border border-outline-variant/40 shadow-xs flex flex-col justify-between">
           <div class="flex items-center justify-between">
             <span class="text-[11px] font-semibold text-surface-on-variant">Ruangan & Lab</span>
-            <div class="w-7 h-7 rounded-m3-xs bg-purple-100 text-purple-800 flex items-center justify-center">
+            <div class="w-7 h-7 rounded-m3-xs bg-slate-100 text-slate-800 flex items-center justify-center">
               <span class="material-symbols-outlined text-[16px]">meeting_room</span>
             </div>
           </div>
@@ -493,7 +493,7 @@ const formatDate = (dateStr) => {
           <div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
             <div>
               <h3 class="text-sm font-bold text-surface-foreground flex items-center gap-2">
-                <span class="material-symbols-outlined text-[18px] text-indigo-600">apartment</span>
+                <span class="material-symbols-outlined text-[18px] text-slate-700">apartment</span>
                 <span>Penempatan Barang per Ruangan / Lab</span>
               </h3>
               <p class="text-[11px] text-surface-on-variant mt-0.5">Sebaran aset pada laboratorium kejuruan dan ruang kelas</p>
@@ -513,7 +513,7 @@ const formatDate = (dateStr) => {
           <div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
             <div>
               <h3 class="text-sm font-bold text-surface-foreground flex items-center gap-2">
-                <span class="material-symbols-outlined text-[18px] text-pink-600">pie_chart</span>
+                <span class="material-symbols-outlined text-[18px] text-primary">pie_chart</span>
                 <span>Peruntukan Fungsi Operasional Aset</span>
               </h3>
               <p class="text-[11px] text-surface-on-variant mt-0.5">Praktikum Siswa, Media Teori, Infrastruktur Jaringan, dsb.</p>
@@ -595,7 +595,7 @@ const formatDate = (dateStr) => {
                 <td class="py-2.5 px-3 text-center">
                   <span
                     class="px-2 py-0.5 rounded-full text-[10px] font-bold"
-                    :class="item.condition === 'Baik' ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'"
+                    :class="item.condition === 'Baik' ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-primary'"
                   >
                     {{ item.condition }}
                   </span>
@@ -654,7 +654,7 @@ const formatDate = (dateStr) => {
           :href="route('master-data.buildings.index')"
           class="p-4 rounded-m3-lg bg-surface-container-lowest hover:bg-primary-container/40 border border-outline-variant/40 transition-all flex flex-col items-center text-center group cursor-pointer"
         >
-          <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center group-hover:scale-110 transition-transform">
             <span class="material-symbols-outlined text-[20px]">domain</span>
           </div>
           <span class="text-xs font-bold text-surface-foreground mt-2">Data Gedung</span>
@@ -666,7 +666,7 @@ const formatDate = (dateStr) => {
           :href="route('master-data.rooms.index')"
           class="p-4 rounded-m3-lg bg-surface-container-lowest hover:bg-primary-container/40 border border-outline-variant/40 transition-all flex flex-col items-center text-center group cursor-pointer"
         >
-          <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-800 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div class="w-10 h-10 rounded-full bg-slate-200 text-slate-900 flex items-center justify-center group-hover:scale-110 transition-transform">
             <span class="material-symbols-outlined text-[20px]">meeting_room</span>
           </div>
           <span class="text-xs font-bold text-surface-foreground mt-2">Data Ruangan</span>

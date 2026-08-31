@@ -16,53 +16,53 @@ export default {
                 sans: ['Roboto', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                // Material Design 3 (M3) Baseline Dynamic Color Tokens
+                // Telkom Schools Signature Palette: Vibrant Red (#E52320 / #E11D48), Crisp White, Subtle Cool Gray
                 primary: {
-                    DEFAULT: '#6750A4',
+                    DEFAULT: '#E52320', // Signature Telkom Red
                     foreground: '#FFFFFF',
-                    container: '#EADDFF',
-                    'on-container': '#21005D',
-                    hover: '#5A4397',
-                    active: '#4F378B',
+                    container: '#FFE8E9', // Light pastel red tint
+                    'on-container': '#660007',
+                    hover: '#CC1513',
+                    active: '#B30D10',
                 },
                 secondary: {
-                    DEFAULT: '#625B71',
+                    DEFAULT: '#334155', // Slate Gray
                     foreground: '#FFFFFF',
-                    container: '#E8DEF8',
-                    'on-container': '#1D192B',
+                    container: '#F1F5F9',
+                    'on-container': '#0F172A',
                 },
                 tertiary: {
-                    DEFAULT: '#7D5260',
+                    DEFAULT: '#991B1B', // Crimson
                     foreground: '#FFFFFF',
-                    container: '#FFD8E4',
-                    'on-container': '#31111D',
+                    container: '#FEE2E2',
+                    'on-container': '#450A0A',
                 },
                 error: {
-                    DEFAULT: '#B3261E',
+                    DEFAULT: '#DC2626',
                     foreground: '#FFFFFF',
-                    container: '#F9DEDC',
-                    'on-container': '#410E0B',
+                    container: '#FEE2E2',
+                    'on-container': '#450A0A',
                 },
                 surface: {
-                    DEFAULT: '#FEF7FF',
-                    foreground: '#1D1B20',
-                    variant: '#E7E0EC',
-                    'on-variant': '#49454F',
-                    'container-lowest': '#FFFFFF',
-                    'container-low': '#F7F2FA',
-                    container: '#F3EDF7',
-                    'container-high': '#ECE6F0',
-                    'container-highest': '#E6E0E9',
+                    DEFAULT: '#F8FAFC', // Crisp Slate White-Gray background
+                    foreground: '#0F172A', // Dark Slate
+                    variant: '#E2E8F0',
+                    'on-variant': '#64748B',
+                    'container-lowest': '#FFFFFF', // Pure Crisp White
+                    'container-low': '#F8FAFC',
+                    container: '#F1F5F9',
+                    'container-high': '#E2E8F0',
+                    'container-highest': '#CBD5E1',
                 },
                 outline: {
-                    DEFAULT: '#79747E',
-                    variant: '#CAC4D0',
+                    DEFAULT: '#94A3B8',
+                    variant: '#E2E8F0',
                 },
                 'inverse-surface': {
-                    DEFAULT: '#322F35',
-                    foreground: '#F5EFF7',
+                    DEFAULT: '#1E293B',
+                    foreground: '#F8FAFC',
                 },
-                'inverse-primary': '#D0BCFF',
+                'inverse-primary': '#FFB3B7',
             },
             borderRadius: {
                 'm3-xs': '4px',
@@ -73,11 +73,11 @@ export default {
                 'm3-full': '9999px',
             },
             boxShadow: {
-                'm3-elevation-1': '0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
-                'm3-elevation-2': '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
-                'm3-elevation-3': '0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30)',
-                'm3-elevation-4': '0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30)',
-                'm3-elevation-5': '0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.30)',
+                'm3-elevation-1': '0px 1px 3px 1px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.15)',
+                'm3-elevation-2': '0px 2px 6px 2px rgba(0, 0, 0, 0.08), 0px 1px 2px 0px rgba(0, 0, 0, 0.15)',
+                'm3-elevation-3': '0px 4px 8px 3px rgba(0, 0, 0, 0.08), 0px 1px 3px 0px rgba(0, 0, 0, 0.15)',
+                'm3-elevation-4': '0px 6px 10px 4px rgba(0, 0, 0, 0.08), 0px 2px 3px 0px rgba(0, 0, 0, 0.15)',
+                'm3-elevation-5': '0px 8px 12px 6px rgba(0, 0, 0, 0.08), 0px 4px 4px 0px rgba(0, 0, 0, 0.15)',
             }
         },
     },

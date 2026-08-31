@@ -78,7 +78,7 @@ const getBreadcrumbParent = () => {
             </div>
             <div>
               <span class="text-base font-bold text-surface-foreground tracking-tight block">Aset & Inventaris</span>
-              <span class="text-[11px] text-surface-on-variant font-medium block">SMK Telkom Lampung</span>
+              <span class="text-[11px] text-primary font-bold block">SMK Telkom Lampung</span>
             </div>
           </Link>
           <button
@@ -89,15 +89,15 @@ const getBreadcrumbParent = () => {
           </button>
         </div>
 
-        <!-- User Role Tag in Sidebar -->
+        <!-- User Role Tag in Sidebar (Telkom Theme) -->
         <div class="px-5 pt-4 pb-2">
           <div
-            class="p-3 rounded-m3-md flex items-center gap-3 border"
-            :class="isSuperAdmin ? 'bg-purple-50/70 border-purple-200' : 'bg-emerald-50/70 border-emerald-200'"
+            class="p-3 rounded-m3-md flex items-center gap-3 border shadow-2xs"
+            :class="isSuperAdmin ? 'bg-primary-container/40 border-primary/20' : 'bg-slate-100 border-slate-200'"
           >
             <div
               class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-              :class="isSuperAdmin ? 'bg-purple-700 text-white' : 'bg-emerald-700 text-white'"
+              :class="isSuperAdmin ? 'bg-primary text-white' : 'bg-slate-700 text-white'"
             >
               <span class="material-symbols-outlined text-[18px]">
                 {{ isSuperAdmin ? 'shield_person' : 'badge' }}
@@ -107,7 +107,7 @@ const getBreadcrumbParent = () => {
               <div class="font-bold text-xs text-surface-foreground truncate">{{ $page.props.auth.user.name }}</div>
               <div
                 class="text-[10px] font-bold uppercase tracking-wider"
-                :class="isSuperAdmin ? 'text-purple-800' : 'text-emerald-800'"
+                :class="isSuperAdmin ? 'text-primary' : 'text-slate-700'"
               >
                 {{ isSuperAdmin ? 'Super Administrator' : 'Anggota Tim Pendata' }}
               </div>
@@ -121,7 +121,7 @@ const getBreadcrumbParent = () => {
           <Link
             :href="route('dashboard')"
             class="flex items-center gap-4 px-4 py-3 text-sm font-medium rounded-m3-full transition-all duration-150"
-            :class="route().current('dashboard') ? 'bg-secondary-container text-secondary-on-container font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
+            :class="route().current('dashboard') ? 'bg-primary-container text-primary font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
           >
             <span class="material-symbols-outlined text-[22px]">dashboard</span>
             <span>Beranda</span>
@@ -171,7 +171,7 @@ const getBreadcrumbParent = () => {
               <Link
                 :href="route('integrity-pact.show')"
                 class="flex items-center gap-4 px-4 py-2.5 text-xs font-medium rounded-m3-full transition-all duration-150"
-                :class="route().current('integrity-pact.*') ? 'bg-secondary-container text-secondary-on-container font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
+                :class="route().current('integrity-pact.*') ? 'bg-primary-container text-primary font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
               >
                 <span class="material-symbols-outlined text-[20px] text-emerald-600">verified_user</span>
                 <span>Pakta Integritas</span>
@@ -181,7 +181,7 @@ const getBreadcrumbParent = () => {
               <Link
                 :href="route('data-finalization.index')"
                 class="flex items-center gap-4 px-4 py-2.5 text-xs font-medium rounded-m3-full transition-all duration-150"
-                :class="route().current('data-finalization.*') ? 'bg-secondary-container text-secondary-on-container font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
+                :class="route().current('data-finalization.*') ? 'bg-primary-container text-primary font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
               >
                 <span class="material-symbols-outlined text-[20px] text-primary">description</span>
                 <span>Finalisasi & Berita Acara</span>
@@ -270,9 +270,9 @@ const getBreadcrumbParent = () => {
               <Link
                 :href="route('user-management.users.index')"
                 class="flex items-center gap-4 px-4 py-2.5 text-xs font-medium rounded-m3-full transition-all duration-150"
-                :class="route().current('user-management.*') ? 'bg-secondary-container text-secondary-on-container font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
+                :class="route().current('user-management.*') ? 'bg-primary-container text-primary font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
               >
-                <span class="material-symbols-outlined text-[20px] text-purple-700">manage_accounts</span>
+                <span class="material-symbols-outlined text-[20px] text-primary">manage_accounts</span>
                 <span>Manajemen Pengguna</span>
               </Link>
 
@@ -280,7 +280,7 @@ const getBreadcrumbParent = () => {
               <Link
                 :href="route('inventory-period.index')"
                 class="flex items-center gap-4 px-4 py-2.5 text-xs font-medium rounded-m3-full transition-all duration-150"
-                :class="route().current('inventory-period.*') ? 'bg-secondary-container text-secondary-on-container font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
+                :class="route().current('inventory-period.*') ? 'bg-primary-container text-primary font-bold shadow-none' : 'text-surface-on-variant hover:bg-surface-variant/40 hover:text-surface-foreground'"
               >
                 <span class="material-symbols-outlined text-[20px] text-amber-600">timer</span>
                 <span>Batas Waktu Cut-off</span>
@@ -332,10 +332,10 @@ const getBreadcrumbParent = () => {
 
         <!-- User Profile Dropdown -->
         <div class="flex items-center gap-3">
-          <!-- Role Pill Badge -->
+          <!-- Role Pill Badge (Telkom Theme) -->
           <span
-            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-2xs"
-            :class="isSuperAdmin ? 'bg-purple-100 text-purple-800' : 'bg-emerald-100 text-emerald-800'"
+            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-2xs border"
+            :class="isSuperAdmin ? 'bg-primary-container text-primary border-primary/20' : 'bg-slate-100 text-slate-800 border-slate-200'"
           >
             <span class="material-symbols-outlined text-[16px]">
               {{ isSuperAdmin ? 'shield' : 'person' }}

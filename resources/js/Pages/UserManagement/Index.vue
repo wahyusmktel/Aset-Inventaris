@@ -178,9 +178,9 @@ const handleDelete = async (user) => {
         <div class="bg-surface-container-lowest p-4 sm:p-5 rounded-m3-lg border border-outline-variant/40 shadow-xs flex items-center justify-between">
           <div>
             <div class="text-[11px] font-medium text-surface-on-variant">Super Administrator</div>
-            <div class="text-xl sm:text-2xl font-black text-purple-700 mt-0.5">{{ statistics.total_super_admins }} Akun</div>
+            <div class="text-xl sm:text-2xl font-black text-primary mt-0.5">{{ statistics.total_super_admins }} Akun</div>
           </div>
-          <div class="w-10 h-10 rounded-m3-md bg-purple-100 text-purple-700 flex items-center justify-center">
+          <div class="w-10 h-10 rounded-m3-md bg-primary-container text-primary flex items-center justify-center">
             <span class="material-symbols-outlined text-[22px]">shield_person</span>
           </div>
         </div>
@@ -188,9 +188,9 @@ const handleDelete = async (user) => {
         <div class="bg-surface-container-lowest p-4 sm:p-5 rounded-m3-lg border border-outline-variant/40 shadow-xs flex items-center justify-between">
           <div>
             <div class="text-[11px] font-medium text-surface-on-variant">Anggota Tim Pendata</div>
-            <div class="text-xl sm:text-2xl font-black text-emerald-700 mt-0.5">{{ statistics.total_anggota }} Petugas</div>
+            <div class="text-xl sm:text-2xl font-black text-slate-800 mt-0.5">{{ statistics.total_anggota }} Petugas</div>
           </div>
-          <div class="w-10 h-10 rounded-m3-md bg-emerald-100 text-emerald-700 flex items-center justify-center">
+          <div class="w-10 h-10 rounded-m3-md bg-slate-100 text-slate-800 flex items-center justify-center">
             <span class="material-symbols-outlined text-[22px]">badge</span>
           </div>
         </div>
@@ -262,8 +262,8 @@ const handleDelete = async (user) => {
                 <!-- Role Badge & Quick Assign -->
                 <td class="py-3 px-3.5 text-center">
                   <span
-                    class="px-2.5 py-1 rounded-full text-[10px] font-bold inline-flex items-center gap-1 shadow-2xs cursor-pointer"
-                    :class="user.role === 'super_admin' ? 'bg-purple-100 text-purple-800' : 'bg-emerald-100 text-emerald-800'"
+                    class="px-2.5 py-1 rounded-full text-[10px] font-bold inline-flex items-center gap-1 shadow-2xs cursor-pointer border"
+                    :class="user.role === 'super_admin' ? 'bg-primary-container text-primary border-primary/20' : 'bg-slate-100 text-slate-800 border-slate-200'"
                     @click="handleAssignRole(user, user.role === 'super_admin' ? 'anggota' : 'super_admin')"
                     title="Klik untuk mengubah role pengguna"
                   >
