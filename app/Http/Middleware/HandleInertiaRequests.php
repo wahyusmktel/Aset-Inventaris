@@ -37,7 +37,11 @@ class HandleInertiaRequests extends Middleware
         $userData = null;
 
         if ($user) {
-            $jwtToken = session('jwt_token') ?: auth('api')->tokenById($user->id);
+            try {
+                $jwtToken = session('jwt_token') ?: (auth('api')->check() ? auth('api')->tokenById($user->id) : null);
+            } catch (\Throwable $e) {
+                $jwtToken = null;
+            }
             $userData = [
                 'id' => $user->id,
                 'name' => $user->name,

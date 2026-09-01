@@ -34,11 +34,22 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user = Auth::user();
-        $token = auth('api')->login($user);
-        session(['jwt_token' => $token]);
+        $token = null;
+        try {
+            $token = auth('api')->login($user);
+            if ($token) {
+                session(['jwt_token' => $token]);
+            }
+        } catch (\Throwable $e) {
+            $token = null;
+        }
 
-        return redirect()->intended(route('dashboard', absolute: false))
-            ->withCookie(cookie('jwt_token', $token, 120, null, null, false, false));
+        $response = redirect()->intended(route('dashboard', absolute: false));
+        if ($token) {
+            $response->withCookie(cookie('jwt_token', $token, 120, null, null, false, false));
+        }
+
+        return $response;
     }
 
     /**
