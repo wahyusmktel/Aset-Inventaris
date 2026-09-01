@@ -61,9 +61,10 @@ sudo mysql
 Jalankan query SQL berikut (ganti password database sesuai keinginan Anda):
 
 ```sql
-CREATE DATABASE aset_inventaris_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS aset_inventaris_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE USER 'aset_user'@'localhost' IDENTIFIED BY 'PasswordKuatAnda123!';
+CREATE USER IF NOT EXISTS 'aset_user'@'localhost' IDENTIFIED BY 'PasswordKuatAnda123!';
+ALTER USER 'aset_user'@'localhost' IDENTIFIED BY 'PasswordKuatAnda123!';
 
 GRANT ALL PRIVILEGES ON aset_inventaris_db.* TO 'aset_user'@'localhost';
 
